@@ -14,22 +14,17 @@ console.log(arr.myMap(n => n * 3));
 
 //myReduce
 
+Array.prototype.myMap = function(cb) {
+    let arr1 = [];
 
-
-
-const sum = (initialValue, current) => initialValue + current;
-
-const myReduce = (reducer, initialValue, array) => {
-  let value = initialValue;
-
-  for(let i = 0; i < array.length; i++) {
-    let currentValue = array[i]
-    value = reducer(value, currentValue)
-  }
-
-  return value;
-}
-
-console.log(myReduce(sum , 0 ,[2,6,8,3]));
+    for (let i = 0; i < this.length; i++) {
+      arr1.push(cb(this[i]), i , this);
+    }
+    return arr1;
+  };
+  
+  let num = [2,4,6,8];
+  result = num.myMap(e => e * 2);
+  console.log(result);
 
 
